@@ -3,7 +3,7 @@ IDIR= /lib/modules/$(shell uname -r)/kernel/net/ipv4/
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
 default:
-	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+	$(MAKE) -C $(KDIR) KBUILD_EXTMOD=$(PWD) modules
 
 install:
 	install -v -m 644 tcp_ledbat.ko $(IDIR)
